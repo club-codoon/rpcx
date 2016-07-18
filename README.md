@@ -4,7 +4,15 @@
 
 [![GoDoc](https://godoc.org/github.com/smallnest/rpcx?status.png)](http://godoc.org/github.com/smallnest/rpcx) [![Drone Build Status](https://drone.io/github.com/smallnest/rpcx/status.png)](https://drone.io/github.com/smallnest/rpcx/latest) [![Go Report Card](https://goreportcard.com/badge/github.com/smallnest/rpcx)](https://goreportcard.com/report/github.com/smallnest/rpcx)
 
-[![License](https://img.shields.io/:license-apache%202-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GoDoc](https://godoc.org/github.com/smallnest/rpcx?status.png)](http://godoc.org/github.com/smallnest/rpcx)  [![travis](https://travis-ci.org/smallnest/rpcx.svg?branch=master)](https://travis-ci.org/smallnest/rpcx) [![Go Report Card](https://goreportcard.com/badge/github.com/smallnest/rpcx)](https://goreportcard.com/report/github.com/smallnest/rpcx) [![coveralls](https://coveralls.io/repos/smallnest/rpcx/badge.svg?branch=master&service=github)](https://coveralls.io/github/smallnest/rpcx?branch=master) [![QQ群](https://img.shields.io/:QQ群-398044387-blue.svg)](_documents/images/rpcx_qq.png) [![sourcegraph](https://sourcegraph.com/github.com/smallnest/rpcx/-/badge.svg)](https://sourcegraph.com/github.com/smallnest/rpcx?badge)
+rpcx is a distributed RPC framework like [Alibaba Dubbo](http://dubbo.io/) and [Weibo Motan](https://github.com/weibocom/motan).
+It is developed based on Go net/rpc and provides extra governance features.
+
+
+![Benchmark](_documents/benchmark.png)
+
+
+When we talk about RPC frameworks, Dubbo is first framework we should introduced, and there is also Dubbox mantained by dangdang.
+Dubbo has been widely used in e-commerce companies in China, for example, Alibaba, Jingdong and Dangdang.
 
 Though Dubbo has still used Spring 2.5.6.SEC03 and seems has not been supported by Alibaba no longer, 
 some other companies still use it and maintained their branches.
@@ -107,11 +115,44 @@ install the basic features:
 
 `go get -u -v github.com/smallnest/rpcx/...`
 
+<<<<<<< HEAD
 
 If you want to use `reuseport`、`quic`、`kcp`, `zookeeper`, `etcd`, `consul` registry, use those tags to `go get` 、 `go build` or `go run`. For example, if you want to use all features, you can:
 
 ```sh
 go get -u -v -tags "reuseport quic kcp zookeeper etcd consul ping" github.com/smallnest/rpcx/...
+=======
+**Test Environment**
+* CPU:    Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz, 24 cores
+* Memory: 16G
+* OS:     Linux Server-3 2.6.32-358.el6.x86_64, CentOS 6.4
+* Go:     1.6.2
+
+Test request is copied from protobuf and encoded to a proto message. Its size is 581 bytes.
+The response is same to test request but server has handled the decoding and encoding processing.
+
+The concurrent clients are 100, 1000,2000 and 5000. Count of the total requests for all clients are 1,000,000.
+
+**Test Result**
+
+|concurrent clients|mean(ms)|median(ms)|max(ms)|min(ms)| 
+||||||
+|100|1|0|96|0|
+|1000|3|2|151|0|
+|2000|6|4|167|0|
+|5000|27|24|442|0|
+
+
+When you use clients, clients should be shared as possible.
+
+you can use test code in `_benchmark` to test.
+`server` is used to start a server and `client` is used as clients via protobuf.
+
+
+
+The below lists benchmarks of serialization libraries:
+
+>>>>>>> add benchmark results
 ```
 
 **_tags_**:
