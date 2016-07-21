@@ -700,7 +700,7 @@ rpcx的测试结果如上，下面事gRPC的测试结果。
 2000|30|26|115|0|62367
 5000|73|67|349|0|59421 
 
-![](_documents/rpcx-grpc-1.png)
+![](_documents/images/rpcx-grpc-1.png)
 
 ### 客户端在一台机器上，服务器在一台机器上
 
@@ -712,7 +712,7 @@ rpcx的测试结果如上，下面事gRPC的测试结果。
 2000|17|2|9735|0|49185
 5000|44|2|12788|0|52770 
 
-![](_documents/rpcx-grpc-2.png)
+![](_documents/images/rpcx-grpc-2.png)
 
 ### 客户端在一台机器上，三个服务器在三台机器上
 
@@ -724,13 +724,4 @@ rpcx的测试结果如上，下面事gRPC的测试结果。
 2000|19|12|2465|0|86169
 5000|51|40|6358|0|82243 
 
-![](_documents/rpcx-grpc-2.png)
-
-## 参考文档
-1. [谁能用通俗的语言解释一下什么是RPC框架？](https://www.zhihu.com/question/25536695)
-2. [DUBBO](http://dubbo.io/)
-3. [支撑微博千亿调用的轻量级RPC框架：Motan](http://weibo.com/ttarticle/p/show?id=2309403951077522312320)
-4. [你应该知道的 RPC 原理](http://blog.jobbole.com/92290/)
-5. [Twitter的RPC框架Finagle简介](http://www.infoq.com/cn/news/2014/05/twitter-finagle-intro)
-6. [armeria: Netty的作者正在开发的一个RPC库](https://github.com/line/armeria)
-7. [wikipedia RPC](https://en.wikipedia.org/wiki/Remote_procedure_call)
+![](_documents/images/rpcx-grpc-2.png)
