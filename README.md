@@ -681,13 +681,9 @@ BenchmarkRPCX_protobuf-16         100000             17234 ns/op             733
 ```
 
 
-## 和gRPC比较
-[gRPC](https://github.com/grpc/grpc-go) 是Google开发的一个RPC框架，支持多种编程语言。
+current gRPC version is 1.0 .
 
-我对gRPC和rpcx进行了相同的测试，得到了相应的测试结果。结果显示rpcx的性能要远远好于gRPC。
-gRPC的优势之一就是随着并发数的增大，吞吐率比较稳定，而rpcx随着并发数的增加性能有所下降，但总体吞吐率还是要高于gRPC的。
-
-rpcx的测试结果如上，下面事gRPC的测试结果。
+Test results of rpcx has been listed on the above. Here is test results of gRPC.
 
 ### gRPC: one client and one server in a same machine
 concurrent clients|mean(ms)|median(ms)|max(ms)|min(ms)|throughput(TPS)
