@@ -11,6 +11,13 @@ rpcx是一个类似阿里巴巴 [Dubbo](http://dubbo.io/) 和微博 [Motan](http
 不知道dubbo在阿里的内部竞争中败给了HSF，还是阿里有意将其闭源了，官方的代码使用的spring还停留在2.5.6.SEC03的版本，dubbox的spring也只升级到3.2.9.RELEASE。
 不管怎样，dubbo还是在电商企业得到广泛的应用，京东也有部分在使用dubbo开发。
 
+![Throughput](_documents/throughput.png)
+
+very very good performance. Much better than gRPC.
+
+
+![Comparision of rpcx and gRPC](_documents/images/rpcx-grpc-1.png)
+
 
 这两个个优秀的框架都是使用Java开发的，国外的互联网企业也有非常出名的的RPC框架如[thrift](https://thrift.apache.org/)、[finagle](https://github.com/twitter/finagle)。
 
@@ -694,6 +701,9 @@ concurrent clients|mean(ms)|median(ms)|max(ms)|min(ms)|throughput(TPS)
 2000|19|1|9736|0|58129
 5000|43|2|14224|0|44724
 
+
+![](_documents/images/rpcx-grpc-1.png)
+
 ### gRPC: one client and one server in separated machines
 concurrent clients|mean(ms)|median(ms)|max(ms)|min(ms)|throughput(TPS)
 -------------|-------------|-------------|-------------|-------------|-------------
@@ -704,6 +714,8 @@ concurrent clients|mean(ms)|median(ms)|max(ms)|min(ms)|throughput(TPS)
 5000|43|2|14224|0|44724 
 
 
+![](_documents/images/rpcx-grpc-2.png)
+
 ### gRPC: one client on a machine and two servers in two machines 
 concurrent clients|mean(ms)|median(ms)|max(ms)|min(ms)|throughput(TPS)
 -------------|-------------|-------------|-------------|-------------|-------------
@@ -712,3 +724,6 @@ concurrent clients|mean(ms)|median(ms)|max(ms)|min(ms)|throughput(TPS)
 1000|9|1|6315|0|62305
 2000|17|1|9736|0|44487
 5000|38|1|25087|0|33198
+
+
+![](_documents/images/rpcx-grpc-3.png)
