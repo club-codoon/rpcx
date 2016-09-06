@@ -13,10 +13,9 @@ rpcx是一个类似阿里巴巴 [Dubbo](http://dubbo.io/) 和微博 [Motan](http
 
 ![Throughput](_documents/throughput.png)
 
-very very good performance. Much better than gRPC.
+very very good performance. Much better than gRPC, Dubbo and weibo Motan.
 
 
-![Comparision of rpcx and gRPC](_documents/images/rpcx-grpc-1.png)
 
 
 这两个个优秀的框架都是使用Java开发的，国外的互联网企业也有非常出名的的RPC框架如[thrift](https://thrift.apache.org/)、[finagle](https://github.com/twitter/finagle)。
