@@ -94,8 +94,14 @@ rpcx拥有众多特性。
 
 ### 服务器特性
 
-#### 编码 (序列化)
-rpcx当前支持多种序列化/反序列化的方式，可以根据需求选择合适的编码库。
+[rpcx-ui](https://github.com/smallnest/rpcx-ui) provides a web ui for services management.
+![rpcx-ui](https://github.com/smallnest/rpcx-ui/blob/master/ui.png)
+
+## Architecture
+rpcx contains three roles : RPC Server，RPC Client and Registry.
+* Server registers services on Registry
+* Client queries service list and select a server from server list returned from Registry.
+* When a Server is down, Registry can remove this server and then client can remove it too.
 
 | 特性 | 功能描述  | 
 | -- | -- |
