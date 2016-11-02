@@ -89,10 +89,6 @@ rpcx focus in on service governance.
 rpcx基于Go net/rpc的底层实现， Client和Server之间通讯是通过TCP进行通讯的，它们之间通过Client发送Request，Server返回Response实现。
 Request和Response消息的格式都是`Header+Body`的格式。Header和Body具体的格式根据编码方式的不同而不同，可以是二进制，也可以是结构化数据如JSON。
 
-
-## RPCX的特性
-rpcx拥有众多特性。
-
 * Based on net/rpc. a Go net/prc project can be converted to use rpcx with a few changes.
 * Pluggable. Features are implemented by Plugins, such as service discovery.
 * Communicate with TCP long connections.
@@ -117,7 +113,7 @@ rpcx has fixed/implemented the below issues in [golang/go rpc](https://github.co
 * [#7946](https://github.com/golang/go/issues/7946): net/rpc: add client support for RPC over https
 * [#4591](https://github.com/golang/go/issues/4591): Authentication for RPC and HTTP
 * [#4584](https://github.com/golang/go/issues/4584): net/rpc: access to client's IP address
-* [#3615]()https://github.com/golang/go/issues/3615: rpc: allow aliasing methods
+* [#3615](https://github.com/golang/go/issues/3615): rpc: allow aliasing methods
 
 
 [rpcx-ui](https://github.com/smallnest/rpcx-ui) provides a web ui for services management.
