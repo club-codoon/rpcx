@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/smallnest/rpcx"
-	"github.com/smallnest/rpcx/plugin"
+	"github.com/club-codoon/rpcx"
+	"github.com/club-codoon/rpcx/plugin"
 )
 
 type Args struct {

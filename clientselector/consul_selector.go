@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/club-codoon/rpcx"
 	"github.com/hashicorp/consul/api"
-	"github.com/smallnest/rpcx"
 )
 
 // ConsulClientSelector is used to select a rpc server from consul.
@@ -35,7 +35,9 @@ type ConsulClientSelector struct {
 }
 
 // NewConsulClientSelector creates a ConsulClientSelector
-func NewConsulClientSelector(consulAddress string, serviceName string, sessionTimeout time.Duration, sm rpcx.SelectMode, dailTimeout time.Duration) *ConsulClientSelector {
+func NewConsulClientSelector(consulAddress string, serviceName string, sessionTimeout time.Duration,
+	sm rpcx.SelectMode, dailTimeout time.Duration) *ConsulClientSelector {
+
 	selector := &ConsulClientSelector{
 		ConsulAddress:   consulAddress,
 		ServiceName:     serviceName,
@@ -93,20 +95,20 @@ func (s *ConsulClientSelector) start() {
 }
 
 func (s *ConsulClientSelector) pullServers() {
-	agent := s.client.Agent()
-	ass, err := agent.Services()
-
+	rsp, _, err := s.client.Health().Service(s.ServiceName, "", true, nil)
 	if err != nil {
 		return
 	}
 
 	var services []*api.AgentService
-	for k, v := range ass {
-		if strings.HasPrefix(k, s.ServiceName) {
-			services = append(services, v)
+	for _, r := range rsp {
+		if r.Service.Service != s.ServiceName {
+			continue
 		}
+		services = append(services, r.Service)
 	}
 	s.Servers = services
+	s.len = len(services)
 }
 
 func (s *ConsulClientSelector) createWeighted(ass map[string]*api.AgentService) {
@@ -140,7 +142,7 @@ func (s *ConsulClientSelector) getCachedClient(server string, clientCodecFunc rp
 	if c != nil {
 		return c, nil
 	}
-	ss := strings.Split(server, "@") //
+	ss := strings.Split(server, "@")
 	c, err := rpcx.NewDirectRPCClient(s.Client, clientCodecFunc, ss[0], ss[1], s.dailTimeout)
 	s.clientAndServer[server] = c
 	return c, err

@@ -12,8 +12,8 @@ import (
 	"time"
 
 	"github.com/montanaflynn/stats"
-	"github.com/smallnest/rpcx"
-	"github.com/smallnest/rpcx/codec"
+	"github.com/club-codoon/rpcx"
+	"github.com/club-codoon/rpcx/codec"
 )
 
 var concurrency = flag.Int("c", 1, "concurrency")

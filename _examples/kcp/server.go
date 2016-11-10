@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/crypto/pbkdf2"
 
-	"github.com/smallnest/rpcx"
+	"github.com/club-codoon/rpcx"
 	kcp "github.com/xtaci/kcp-go"
 )
 

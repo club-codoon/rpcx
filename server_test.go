@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/net-rpc-msgpackrpc"
-	"github.com/smallnest/rpcx/codec"
+	"github.com/club-codoon/rpcx/codec"
 )
 
 var (

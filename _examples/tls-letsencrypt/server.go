@@ -1,6 +1,6 @@
 package main
 
-import "github.com/smallnest/rpcx"
+import "github.com/club-codoon/rpcx"
 
 type Args struct {
 	A int `msg:"a"`

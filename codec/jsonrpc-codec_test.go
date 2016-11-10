@@ -3,7 +3,7 @@ package codec
 import (
 	"testing"
 
-	"github.com/smallnest/rpcx"
+	"github.com/club-codoon/rpcx"
 )
 
 func TestJSONRPCCodec(t *testing.T) {

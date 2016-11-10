@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/samuel/go-zookeeper/zk"
-	"github.com/smallnest/rpcx"
+	"github.com/club-codoon/rpcx"
 )
 
 // ZooKeeperClientSelector is used to select a rpc server from zookeeper.
