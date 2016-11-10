@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/smallnest/rpcx"
+	"github.com/club-codoon/rpcx"
 )
 
 type Args struct {

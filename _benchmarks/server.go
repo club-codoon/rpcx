@@ -6,8 +6,8 @@ import (
 	"os"
 	"runtime/pprof"
 
-	"github.com/smallnest/rpcx"
-	"github.com/smallnest/rpcx/codec"
+	"github.com/club-codoon/rpcx"
+	"github.com/club-codoon/rpcx/codec"
 )
 
 type Hello int

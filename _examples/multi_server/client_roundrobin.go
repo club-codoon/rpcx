@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/smallnest/rpcx"
-	"github.com/smallnest/rpcx/clientselector"
+	"github.com/club-codoon/rpcx"
+	"github.com/club-codoon/rpcx/clientselector"
 )
 
 type Args struct {

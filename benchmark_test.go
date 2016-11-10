@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/net-rpc-msgpackrpc"
-	"github.com/smallnest/rpcx/codec"
+	"github.com/club-codoon/rpcx/codec"
 )
 
 // don't use it to test benchmark. It is only used to evaluate libs internally.

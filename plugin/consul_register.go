@@ -17,7 +17,7 @@ type ConsulRegisterPlugin struct {
 	consulConfig   *api.Config
 	client         *api.Client
 	Services       []string
-	updateInterval time.Duration
+	UpdateInterval time.Duration
 }
 
 // Start starts to connect etcd cluster
@@ -48,7 +48,7 @@ func (plugin *ConsulRegisterPlugin) Register(name string, rcvr interface{}, meta
 		Address: plugin.ServiceAddress,
 		Tags:    []string{strings.Join(metadata, "&")},
 		Check: &api.AgentServiceCheck{
-			TTL:    strconv.Itoa(int(plugin.updateInterval.Seconds())) + "s",
+			TTL:    strconv.Itoa(int(plugin.UpdateInterval.Seconds())) + "s",
 			Status: api.HealthPassing,
 			TCP:    plugin.ServiceAddress,
 		},
@@ -66,17 +66,17 @@ func (plugin *ConsulRegisterPlugin) Unregister(name string) {
 }
 
 // CheckPass sets check pass
-func (plugin *ConsulRegisterPlugin) CheckPass(name string) {
+func (plugin *ConsulRegisterPlugin) CheckPass(name string) error {
 	agent := plugin.client.Agent()
 	id := name + "-" + plugin.ServiceAddress
-	agent.UpdateTTL("service:"+id, "", api.HealthPassing)
+	return agent.UpdateTTL("service:"+id, "", api.HealthPassing)
 }
 
 // CheckFail sets check fail
-func (plugin *ConsulRegisterPlugin) CheckFail(name string) {
+func (plugin *ConsulRegisterPlugin) CheckFail(name string) error {
 	agent := plugin.client.Agent()
 	id := name + "-" + plugin.ServiceAddress
-	agent.UpdateTTL("service:"+id, "", api.HealthCritical)
+	return agent.UpdateTTL("service:"+id, "", api.HealthCritical)
 }
 
 // FindServices gets a service list by name
